@@ -22,7 +22,8 @@ def get_reg(user_id):
         try:
             return db[user_id+'.reg'].decode() # Если используете Vedis версии ниже, чем 0.7.1, то .decode() НЕ НУЖЕН
         except KeyError:  # Если такого ключа почему-то не оказалось
-            return configfsm.States.S_START.value  # значение по умолчанию - начало диалога
+            db[user_id+'.reg'] = str({}) 
+            return db[user_id+'.reg'].decode()  # значение по умолчанию - начало диалога
             
 def set_reg(user_id, value):
     with Redis() as db:
@@ -30,5 +31,7 @@ def set_reg(user_id, value):
             db[user_id+'.reg'] = value
             return True
         except:
+            #db[user_id+'.reg'] = " "
             # тут желательно как-то обработать ситуацию
             return False          
+   

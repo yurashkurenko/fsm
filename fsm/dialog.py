@@ -1,6 +1,7 @@
 import airtable
 import airdata
 import alldatadb
+import registration
 from dbworkerredis import get_current_state, set_state,get_reg,set_reg
 
 messagelist=airdata.getairdata()
@@ -15,6 +16,9 @@ def dialog(text,user_id):
     state=get_current_state(user_id)
     debugmsg="\n"+text+"\n"+user_id+"\n"+' состояние '+state
     #debugmsg=''
+    regmsg=str(eval(get_reg(user_id)))
+    userreg=eval(get_reg(user_id))
+    regmsg=userreg['user_id']+"\n"+userreg['family']+"\n"+userreg['phone']
     dialog=[]
     dialog.append(messagelist[0][0])
     dialog.append(messagelist[0][1]+debugmsg)
@@ -33,6 +37,9 @@ def dialog(text,user_id):
             dialog.append(messagelist[i][3])
             dialog.append(messagelist[i][4])
             dialog.append(messagelist[i][5])
+        if text=="Информация о регистрации":
+            dialog[1]="Информация о регистрации"+"\n"+regmsg
+            
             # print(text,dialog)
 #   print(dialog)
 # Сохраняем ФИО

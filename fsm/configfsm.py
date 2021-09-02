@@ -6,6 +6,8 @@ ABASE = 'keybPU0bpOGwuAwRA'
 ATABLE = 'bota'
 TOKEN = "720456901:AAHKxg2WHPqaaIemulTkO3x7IXGD-IZSd-w"
 
+userreginit={'userid':0,'family':"Фамилия Имя Отчество",'phone':"+78888888888",'organ':"Организация"}
+
 class States(Enum):
     """
     Мы используем БД Redis, в которой хранимые значения всегда строки,

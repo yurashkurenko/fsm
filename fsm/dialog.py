@@ -14,10 +14,17 @@ def dialog(text,user_id):
     messagelist=airdata.getairdata()
 #    print(messagelist)
     state=get_current_state(user_id)
-    debugmsg="\n"+text+"\n"+user_id+"\n"+' состояние '+state
-    #debugmsg=''
+    print(user_id+" "+state)
+#    debugmsg="\n"+text+"\n"+user_id+"\n"+' состояние '+state
+    debugmsg=''
     #regmsg=str(eval(get_reg(user_id)))
+    print(user_id)
+    print(get_reg(user_id))
+    #print(str(eval(get_reg(user_id))))
+    userreg={}
+    print(get_reg(user_id))
     userreg=eval(get_reg(user_id))
+    print(userreg)
     regmsg="\n"+"Телеграм ИД"+userreg['user_id']+"\n"
     regmsg=regmsg+"ФИО - "+userreg['family']+"\n"
     regmsg=regmsg+"Телефон - "+userreg['phone']+"\n"

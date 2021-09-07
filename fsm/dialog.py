@@ -12,13 +12,13 @@ def question():
     
 def dialog(text,user_id):
     messagelist=airdata.getairdata()
-#    print(messagelist)
+    print(messagelist)
     state=get_current_state(user_id)
     print(user_id+" "+state)
 #    debugmsg="\n"+text+"\n"+user_id+"\n"+' состояние '+state
     debugmsg=''
     #regmsg=str(eval(get_reg(user_id)))
-    print(user_id)
+#    print(user_id)
     print(get_reg(user_id))
     #print(str(eval(get_reg(user_id))))
     userreg={}
@@ -36,10 +36,14 @@ def dialog(text,user_id):
     dialog.append(messagelist[0][3])
     dialog.append(messagelist[0][4])
     dialog.append(messagelist[0][5])
+    dialog.append(messagelist[0][6])
 #    print(dialog)    
 
     for i in range(len(messagelist)):
+#        if (text==messagelist[i][0] and state==messagelist[i][5]):
         if (text==messagelist[i][0] and state==messagelist[i][5]):
+            print(state)
+            print(messagelist[i][5])
             dialog=[]
             dialog.append(messagelist[i][0])
             dialog.append(messagelist[i][1]+debugmsg)
@@ -47,13 +51,14 @@ def dialog(text,user_id):
             dialog.append(messagelist[i][3])
             dialog.append(messagelist[i][4])
             dialog.append(messagelist[i][5])
+            dialog.append(messagelist[i][6])
         if text=="Информация о регистрации":
             dialog[1]="Информация о регистрации"+"\n"+regmsg
             
             # print(text,dialog)
 #   print(dialog)
 # Сохраняем ФИО
-    if state=='12':
+    if state=='10':
         print(user_id,text)
         regfamily=text
         #reg=[]
@@ -69,9 +74,9 @@ def dialog(text,user_id):
         set_reg(user_id, string_reg)
         saveinfo=get_reg(user_id)
         print(saveinfo)
-        state='0'
+        #state='1'
         # Сохраняем телефон
-    if state=='13':
+    if state=='11':
         print(user_id,text)
         regphone=text
         reg=eval(get_reg(user_id))
@@ -79,8 +84,9 @@ def dialog(text,user_id):
         string_reg=str(reg)
         set_reg(user_id, string_reg)
         saveinfo=get_reg(user_id)
-        state='0'
-    if state=='14':
+        #state='1'
+        # Сохраняем Организацию
+    if state=='12':
         print(user_id,text)
         regorg=text
         reg=eval(get_reg(user_id))
@@ -88,5 +94,5 @@ def dialog(text,user_id):
         string_reg=str(reg)
         set_reg(user_id, string_reg)
         saveinfo=get_reg(user_id)
-        state='0'
+        state='1'
     return dialog

@@ -69,6 +69,8 @@ def dial(update: Update, context: CallbackContext) -> None:
     #reply_keyboard = ['это просто чудо']
 #    update.message.reply_text(answer, reply_markup=ReplyKeyboardMarkup(reply_keyboard, #one_time_keyboard=True, input_field_placeholder='Boy or Girl?'))
     update.message.reply_text(answer[1], reply_markup=ReplyKeyboardMarkup(reply_keyboard, one_time_keyboard=True, input_field_placeholder=InputFieldPlaceholder, resize_keyboard = True))
+    print(answer)
+    set_state(user_id,answer[6])
     #exec(answer[2])
     
 

@@ -13,7 +13,8 @@ def getairdata():
         l3=airo2[i].get('fields').get('подсказка')
         l4=airo2[i].get('fields').get('команда')
         l5=airo2[i].get('fields').get('состояние')
-        airlist.append([l0,l1,l2,l3,l4,l5])
+        l6=airo2[i].get('fields').get('установитьсостояние')
+        airlist.append([l0,l1,l2,l3,l4,l5,l6])
 #    print(airlist)
     return airlist
     #return at1

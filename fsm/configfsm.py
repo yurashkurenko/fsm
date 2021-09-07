@@ -4,7 +4,8 @@ db_file = "database.vdb"
 ATOKEN = 'appTrXBmiYXmKyLLj'
 ABASE = 'keybPU0bpOGwuAwRA'
 ATABLE = 'bota'
-TOKEN = "720456901:AAHKxg2WHPqaaIemulTkO3x7IXGD-IZSd-w"
+TOKEN = "1676613896:AAEMSpCqzJk_xjLMgWNK8KM9iHWkTKRV9Uc"
+
 
 userreginit={'userid':0,'family':"Фамилия Имя Отчество",'phone':"+78888888888",'organ':"Организация"}
 
